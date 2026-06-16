@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf- <!-- 元：jQuery -->    <meta charset="utf-8" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+
+    <!-- 元：Office.js -->
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+    <!-- 元：CSS -->
+    <link href="App.css" rel="stylesheet" />
+
+    <!-- 元：アプリJS -->
+    <script src="App.js"></script>
+
+    <!-- 元：TaskPane -->
+    <script src="TaskPane.js"></script>
+
+    <!-- ★ ASPXの代替 -->
+    <script>
+        // ToDo: TaskPane.js内で判断させ.aspxファイルを一枚にする
+        GPOutlookExtension.Form = GPOutlookExtension.FormType.Edit;
+    </script>
+</head>
+
+<body>
+
+    <!-- ★ 削除された要素（HTMLでは不要） -->
+    <!-- 
+    <webpartpages:allowframing runat="server" />
+    <asp:Content ...>
+    MasterPageFile
+    -->
+
+    <div id="content-header" align="center">
+        <div class="padding"></div>
+    </div>
+
+    <div id="content-main" align="center" style="display:none;">
+        <!-- ★ 元コードそのまま -->
+        <img onclick="GPOutlookExtension.OpenInfoCallLink();" src="InfoCall_Pane.png">
+    </div>
+
+</body>
+</html>
