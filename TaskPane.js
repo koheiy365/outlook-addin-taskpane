@@ -60,15 +60,15 @@ GPOutlookExtension.InitializeInfoCallPane = function()
     // ライセンスや機能の不備がある場合には管理者に問い合わせる旨を通知する
     var contentDiv = document.getElementById("content-main");
     var rerourceObject = GPOutlookExtension.ErrorMessage.EnUS;
-    if (_spPageContextInfo)
-    {
-        rerourceObject = _spPageContextInfo.currentCultureName == "ja-JP" ? GPOutlookExtension.ErrorMessage.JaJp
-                                                                          : GPOutlookExtension.ErrorMessage.EnUS;
-    }
-    else
-    {
-        // ToDo: Outlookの言語設定の取得
-    }    
+    //if (_spPageContextInfo)
+    //{
+    //    rerourceObject = _spPageContextInfo.currentCultureName == "ja-JP" ? GPOutlookExtension.ErrorMessage.JaJp
+    //                                                                      : GPOutlookExtension.ErrorMessage.EnUS;
+    //}
+    //else
+    //{
+    //    // ToDo: Outlookの言語設定の取得
+    //}    
 
     // 構成不備
     if (typeof(iVxContext) == "undefined" || // InfoShare.jsが読み込まれていない
