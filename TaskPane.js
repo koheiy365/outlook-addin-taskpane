@@ -322,7 +322,7 @@ GPOutlookExtension.OpenInfoCallLinkForOfficeAddin = function()
                 GPOutlookExtension.InfoCallWindow.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogEventReceived, GPOutlookExtension.DialogEventReceived);
             }
         });
-    }
+    //}
     // OWAの場合はnewWindowで開く
     //else
     //{
