@@ -286,7 +286,7 @@ GPOutlookExtension.OpenInfoCallLinkForOfficeAddin = function()
     var hash = location.hash;
     var hrefWithoutHash = hrefWitoutSerch.replace(hash, "");
     //var infoCallPagePath = hrefWithoutHash + "/../../../../OutlookAddinPicker.aspx";
-    var infoCallPagePath = "https://infosharedev.sharepoint.com/sites/Dev_KoheiY15/InfoshareProductLibrary/Sources/Infoshare.InfoCall/Extensions/Outlook/Sources/OutlookAddinPicker.aspx;
+    var infoCallPagePath = "https://infosharedev.sharepoint.com/sites/Dev_KoheiY15/InfoshareProductLibrary/Sources/Infoshare.InfoCall/Extensions/Outlook/Sources/OutlookAddinPicker.aspx";
 
     var queryString = "?"
                     + "Platform="
