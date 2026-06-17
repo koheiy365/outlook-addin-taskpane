@@ -178,13 +178,13 @@ GPOutlookExtension.InitializeInfoCallPaneInternal = function()
     }, 1024);
 
     // ペインのクローズイベントの設定（OutlookはOffice.js内の実装で十分なのでOWAのみ対応する）
-    //if (GPOutlookExtension.Platform == GPOutlookExtension.PlatformType.OWA)
-    //{
-    //    window.onunload = function()
-    //    {
-    //        GPOutlookExtension.Close();
-    //    }
-    //}
+    if (GPOutlookExtension.Platform == GPOutlookExtension.PlatformType.OWA)
+    {
+        window.onunload = function()
+        {
+            GPOutlookExtension.Close();
+        }
+    }
 };
 
 GPOutlookExtension.EnsureContext = function()
@@ -409,15 +409,7 @@ GPOutlookExtension.SetEntities = function(args)
     }
 
     // クローズ処理
-    //GPOutlookExtension.Close();
-    setTimeout(function ()
-    {
-        if (GPOutlookExtension.InfoCallWindow)
-        {
-            GPOutlookExtension.InfoCallWindow.close();
-            GPOutlookExtension.InfoCallWindow = null;
-        }
-    }, 200);
+    GPOutlookExtension.Close();
 };
 
 GPOutlookExtension.DialogEventReceived = function(args)
