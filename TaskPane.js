@@ -301,8 +301,8 @@ GPOutlookExtension.OpenInfoCallLinkForOfficeAddin = function()
     // ToDo：2013、2016のバージョン差異によってサイズ比較の対象が異なるので、ロジックを分岐させる
     // 2013：ディスプレイのサイズ
     // 2016：メールフォームのサイズ
-    if (GPOutlookExtension.Platform == GPOutlookExtension.PlatformType.Outlook)
-    {
+    //if (GPOutlookExtension.Platform == GPOutlookExtension.PlatformType.Outlook)
+    //{
         var width  = 50;
         var height = 50;
         if (GPSettings.GPOutlookExtension && GPSettings.GPOutlookExtension.OutlookDialogSize)
@@ -324,33 +324,33 @@ GPOutlookExtension.OpenInfoCallLinkForOfficeAddin = function()
         });
     }
     // OWAの場合はnewWindowで開く
-    else
-    {
-        var width  = 800;
-        var height = 600;
-        if (GPSettings.GPOutlookExtension && GPSettings.GPOutlookExtension.OWADialogSize)
-        {
-            width  = GPSettings.GPOutlookExtension.OWADialogSize.Width;
-            height = GPSettings.GPOutlookExtension.OWADialogSize.Height;
-        }
-        
-        // 複数フォームが開かれた場合に、固有の名前windowに設定する必要があるため、Guidを設定
-        var option = ISString.Format("width={0}, height={1}, resizable=yes", width, height);
-        var windowName = ISGuid.New();
-        var newWindow = window.open(url, windowName, option);
-                
-        GPOutlookExtension.InfoCallWindow = newWindow;
-        if (newWindow)
-        {
-            // リダイレクトでイベントがキャッシュされないため
-            // 以下のメソッドをInfoshare.GroupPicker.js（Finder.js）内で登録する
-            //newWindow.onunload = function()
-            //{
-            //    // クローズ処理
-            //    GPOutlookExtension.Close();
-                
-            //}; 
-        }
+    //else
+    //{
+    //    var width  = 800;
+    //    var height = 600;
+    //    if (GPSettings.GPOutlookExtension && GPSettings.GPOutlookExtension.OWADialogSize)
+    //    {
+    //        width  = GPSettings.GPOutlookExtension.OWADialogSize.Width;
+    //        height = GPSettings.GPOutlookExtension.OWADialogSize.Height;
+    //    }
+    //    
+    //    // 複数フォームが開かれた場合に、固有の名前windowに設定する必要があるため、Guidを設定
+    //    var option = ISString.Format("width={0}, height={1}, resizable=yes", width, height);
+    //    var windowName = ISGuid.New();
+    //    var newWindow = window.open(url, windowName, option);
+    //            
+    //    GPOutlookExtension.InfoCallWindow = newWindow;
+    //    if (newWindow)
+    //    {
+    //        // リダイレクトでイベントがキャッシュされないため
+    //        // 以下のメソッドをInfoshare.GroupPicker.js（Finder.js）内で登録する
+    //        //newWindow.onunload = function()
+    //        //{
+    //        //    // クローズ処理
+    //        //    GPOutlookExtension.Close();
+    //            
+    //        //}; 
+    //    }
     }
 };
 
