@@ -351,7 +351,7 @@ GPOutlookExtension.OpenInfoCallLinkForOfficeAddin = function()
     //            
     //        //}; 
     //    }
-    }
+    //}
 };
 
 GPOutlookExtension.OpenInfoCallLinkForVstoAddin = function()
