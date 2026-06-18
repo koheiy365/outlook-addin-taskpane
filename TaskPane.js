@@ -269,9 +269,30 @@ GPOutlookExtension.OpenInfoCallLink = function()
     // Office
     else
     {
-        GPOutlookExtension.OpenInfoCallLinkForOfficeAddin();
+        //GPOutlookExtension.OpenInfoCallLinkForOfficeAddin();
+        GPOutlookExtension.SetTestUser();
     }
 };
+
+GPOutlookExtension.SetTestUser = function()
+{
+  Office.context.mailbox.item.to.setAsync(
+    [
+      {
+        displayName: "山田 太郎",
+        emailAddress: "taro@example.com"
+      }
+    ],
+    function (asyncResult) {
+      if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+        console.log("設定成功");
+      } else {
+        console.error("エラー:", asyncResult.error);
+      }
+    }
+  );
+}
+
 
 GPOutlookExtension.OpenInfoCallLinkForOfficeAddin = function()
 {
