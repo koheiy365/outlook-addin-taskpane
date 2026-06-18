@@ -269,9 +269,46 @@ GPOutlookExtension.OpenInfoCallLink = function()
     // Office
     else
     {
-        GPOutlookExtension.OpenInfoCallLinkForOfficeAddin();
-        //GPOutlookExtension.SetTestUser();
+        //GPOutlookExtension.OpenInfoCallLinkForOfficeAddin();
+        GPOutlookExtension.GetAndSetUser();
     }
+};
+
+GPOutlookExtension.GetAndSetUser = function()
+{
+  fetch("https://infosharedev.sharepoint.com/sites/Dev_koheiY15/_api/web/lists/getbytitle('AddressBookDatasource')/items?$filter=Mail eq 'Chiyo.Ooya@infosharedev.onmicrosoft.com'&$top=1", {
+    headers: {
+      "Accept": "application/json;odata=verbose"
+    },
+    credentials: "include"
+  })
+  .then(res => res.json())
+  .then(data => {
+    const item = data.d.results[0];
+
+    if (!item) {
+      console.log("該当ユーザーなし");
+      return;
+    }
+
+    // Outlookへ反映
+    Office.context.mailbox.item.to.setAsync(
+      [
+        {
+          displayName: item.Title,
+          emailAddress: item.Mail
+        }
+      ],
+      function (asyncResult) {
+        if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+          console.log("Outlookに設定成功");
+        } else {
+          console.error("エラー:", asyncResult.error);
+        }
+      }
+    );
+  })
+  .catch(err => console.error(err));
 };
 
 GPOutlookExtension.SetTestUser = function()
