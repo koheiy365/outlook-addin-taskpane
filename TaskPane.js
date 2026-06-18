@@ -279,8 +279,7 @@ GPOutlookExtension.GetAndSetUser = function()
   fetch("https://infosharedev.sharepoint.com/sites/Dev_koheiY15/_api/web/lists/getbytitle('AddressBookDatasource')/items?$filter=Mail eq 'Chiyo.Ooya@infosharedev.onmicrosoft.com'&$top=1", {
     headers: {
       "Accept": "application/json;odata=verbose"
-    },
-    credentials: "include"
+    }
   })
   .then(res => res.json())
   .then(data => {
