@@ -269,8 +269,8 @@ GPOutlookExtension.OpenInfoCallLink = function()
     // Office
     else
     {
-        //GPOutlookExtension.OpenInfoCallLinkForOfficeAddin();
-        GPOutlookExtension.GetAndSetUser();
+        GPOutlookExtension.OpenInfoCallLinkForOfficeAddin();
+        //GPOutlookExtension.GetAndSetUser();
     }
 };
 
